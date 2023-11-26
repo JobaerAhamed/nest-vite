@@ -6,7 +6,9 @@
     "sourceMap": false,
     "noEmit": false,
     "allowImportingTsExtensions": false,
-    "outDir": "./dist/server"
+    "outDir": "./dist/server",
+    "declaration": false,
+    "sourceMap": false
   },
   "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
 }

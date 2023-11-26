@@ -1,0 +1,29 @@
+version: '3.8'
+networks:
+  local:
+    external: true
+    name: local
+services:
+  service-ui:
+    container_name: service-ui
+    image: node:20-alpine
+    working_dir: /app
+    command: npm run dev:ui
+    ports:
+      - '8080:8080'
+    networks:
+      - local
+    volumes:
+      - ./:/app
+    environment:
+      VITE_CJS_IGNORE_WARNING: true
+      API_SERVICE_URL: http://service-api:8080
+  service-api:
+    container_name: service-api
+    image: node:20-alpine
+    working_dir: /app
+    command: npm run dev:api
+    networks:
+      - local
+    volumes:
+      - ./:/app
