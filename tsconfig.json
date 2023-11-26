@@ -28,7 +28,8 @@
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@server/*": ["src/server/*"],
+      "@ui/*": ["src/ui/*"]
     }
   },
   "include": ["src"],

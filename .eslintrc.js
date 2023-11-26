@@ -7,7 +7,7 @@ const pathAliases =
     ...new Set(
       Object.keys(paths)?.map((key) => key.replace(/[^A-Za-z-_]+/g, '')) || [],
     ),
-  ]?.join('|') || '';
+  ]?.join('|') || '/';
 
 module.exports = {
   parserOptions: {
