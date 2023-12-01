@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "npm run dev:ui & npm run dev:api",
-    "predev:ui": "npm ci --include=optional --ignore-scripts --no-audit --no-fund",
+    "predev:ui-fresh": "npm ci --include=optional --ignore-scripts --no-audit --no-fund",
+    "dev:ui-fresh": "vite --port 8080 --host",
     "dev:ui": "vite --port 8080 --host",
     "dev:api": "nest start --watch",
     "prebuild": "npm ci --no-audit --no-fund --ignore-scripts",

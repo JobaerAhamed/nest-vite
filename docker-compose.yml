@@ -8,7 +8,7 @@ services:
     container_name: service-ui
     image: node:20-alpine
     working_dir: /app
-    command: npm run dev:ui
+    command: npm run dev:ui-fresh
     ports:
       - '8080:8080'
     networks:
@@ -19,8 +19,8 @@ services:
       test: wget -nv -t1 --spider http://localhost:8080 || exit 1
       interval: 10s
       timeout: 5s
-      retries: 10
-      start_period: 20s
+      retries: 12
+      start_period: 5s
     environment:
       VITE_CJS_IGNORE_WARNING: true
       API_SERVICE_URL: http://service-api:8080
