@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "npm run dev:ui & npm run dev:api",
+    "predev:ui": "npm ci --include=optional --ignore-scripts --no-audit --no-fund",
     "dev:ui": "vite --port 8080 --host",
     "dev:api": "nest start --watch",
+    "prebuild": "npm ci --no-audit --no-fund --ignore-scripts",
     "build": "npm run build:ui && npm run build:api",
     "build:ui": "VITE_CJS_IGNORE_WARNING=true npx vite build",
     "build:api": "nest build",
@@ -64,5 +66,8 @@
     "typescript": "^5.3.2",
     "vite": "^5.0.2",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-arm64-musl": "^4.6.0"
   }
 }

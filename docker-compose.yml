@@ -15,6 +15,12 @@ services:
       - local
     volumes:
       - ./:/app
+    healthcheck:
+      test: wget -nv -t1 --spider http://localhost:8080 || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
     environment:
       VITE_CJS_IGNORE_WARNING: true
       API_SERVICE_URL: http://service-api:8080
@@ -23,6 +29,9 @@ services:
     image: node:20-alpine
     working_dir: /app
     command: npm run dev:api
+    depends_on:
+      service-ui:
+        condition: service_healthy
     networks:
       - local
     volumes:
